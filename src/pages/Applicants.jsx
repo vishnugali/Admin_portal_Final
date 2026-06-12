@@ -346,20 +346,25 @@ export default function Applicants() {
               }}>
                 <label style={{ display: 'block', fontSize: '12px', fontWeight: 600, color: '#9ca3af' }}>Move Candidate to:</label>
                 <select
-                  value={draftStages[activeApplicant.id] || activeApplicant.stage}
-                  onChange={(e) => updateDraftStage(activeApplicant.id, e.target.value)}
-                  style={{
-                    width: '100%',
-                    padding: '10px',
-                    borderRadius: '8px',
-                    backgroundColor: '#01005D', 
-                    border: '1px solid rgba(255,255,255,0.12)',
-                    color: '#fff',
-                    fontSize: '13px',
-                    outline: 'none',
-                    cursor: 'pointer'
-                  }}
-                >
+  value={draftStages[activeApplicant.id] || activeApplicant.stage}
+  onChange={(e) => updateDraftStage(activeApplicant.id, e.target.value)}
+  style={{
+    width: '100%',
+    padding: '10px 30px 10px 10px', // Added 30px right padding to push text away from the arrow
+    borderRadius: '8px',
+    backgroundColor: '#01005D', 
+    border: '1px solid rgba(255,255,255,0.12)',
+    color: '#fff',
+    fontSize: '13px',
+    outline: 'none',
+    cursor: 'pointer',
+    appearance: 'none', // Optional: Use this to better control the native arrow if needed
+    backgroundImage: `url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e")`,
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'right 10px center',
+    backgroundSize: '16px'
+  }}
+>
                   {stageConfig.map((opt) => (
                     <option key={opt.key} value={opt.key} style={{backgroundColor: '#01005D'}}>{opt.label}</option>
                   ))}
